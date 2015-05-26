@@ -1,0 +1,42 @@
+
+
+tasks:
+- name: pass
+  commands:
+    - command: git.get_project
+      params:
+        directory: src
+    - command: git.apply_patch
+      params:
+        directory: src
+    - command: shell.exec
+      params:
+        working_dir: src
+        script: |
+          set -o errexit
+          sh run.sh 0
+
+- name: fail
+  commands:
+    - command: git.get_project
+      params:
+        directory: src
+    - command: git.apply_patch
+      params:
+        directory: src
+    - command: shell.exec
+      params:
+        working_dir: src
+        script: |
+          set -o errexit
+          sh run.sh 5
+
+buildvariants:
+- name: localhost
+  display_name: My Computer
+  run_on:
+  - local
+  expansions:
+  tasks:
+  - pass
+  - fail
