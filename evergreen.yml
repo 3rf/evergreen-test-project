@@ -40,3 +40,11 @@ buildvariants:
   tasks:
   - name: pass
   - name: fail
+- name: ubuntu
+  display_name: Amazon Ubuntu
+  run_on:
+  - ubuntu
+  expansions:
+  tasks:
+  - name: pass
+  - name: fail
