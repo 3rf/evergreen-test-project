@@ -38,5 +38,5 @@ buildvariants:
   - local
   expansions:
   tasks:
-  - pass
-  - fail
+  - name: pass
+  - name: fail
